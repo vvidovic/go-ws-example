@@ -5,9 +5,9 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/vvidovic/services/httpHandlers"
-	"github.com/vvidovic/services/storage"
-	"github.com/vvidovic/services/structs"
+	"github.com/vvidovic/go-ws-example/httpHandlers"
+	"github.com/vvidovic/go-ws-example/storage"
+	"github.com/vvidovic/go-ws-example/structs"
 )
 
 const PORT = 8080

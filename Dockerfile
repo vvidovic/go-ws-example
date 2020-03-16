@@ -4,10 +4,10 @@ USER nobody
 
 ENV GOCACHE /go/.cache
 
-RUN mkdir -p /go/src/github.com/vvidovic/services
-WORKDIR /go/src/github.com/vvidovic/services
+RUN mkdir -p /go/src/github.com/vvidovic/go-ws-example
+WORKDIR /go/src/github.com/vvidovic/go-ws-example
 
-COPY . /go/src/github.com/vvidovic/services
+COPY . /go/src/github.com/vvidovic/go-ws-example
 RUN go build
 
-CMD ["./services"]
+CMD ["./go-ws-example"]

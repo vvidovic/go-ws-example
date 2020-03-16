@@ -2,10 +2,10 @@ package httpHandlers
 
 import "net/http"
 import "log"
-import "github.com/vvidovic/services/httpHandlers/httpUtils"
+import "github.com/vvidovic/go-ws-example/httpHandlers/httpUtils"
 
 func HandleRequest(w http.ResponseWriter, r *http.Request) {
-	log.Println("Incoming Request:", r.Method)
+	log.Printf("Incoming Request, %s %v", r.Method, r.URL)
 	switch r.Method {
 	case http.MethodGet:
 		List(w, r)

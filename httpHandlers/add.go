@@ -7,9 +7,9 @@ import (
 
 	"log"
 
-	"github.com/vvidovic/services/httpHandlers/httpUtils"
-	"github.com/vvidovic/services/storage"
-	"github.com/vvidovic/services/structs"
+	"github.com/vvidovic/go-ws-example/httpHandlers/httpUtils"
+	"github.com/vvidovic/go-ws-example/storage"
+	"github.com/vvidovic/go-ws-example/structs"
 )
 
 func Add(w http.ResponseWriter, r *http.Request) {

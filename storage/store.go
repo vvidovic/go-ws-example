@@ -1,7 +1,7 @@
 package storage
 
 import (
-	"github.com/vvidovic/services/structs"
+	"github.com/vvidovic/go-ws-example/structs"
 )
 
 var store structs.MessageList
