@@ -7,8 +7,17 @@ import (
 var store structs.MessageList
 var currentMaxId = 1
 
-func Get() structs.MessageList {
+func List() structs.MessageList {
 	return store
+}
+
+func Get(id int) structs.Message {
+	for _, message := range store {
+		if message.ID == id {
+			return message
+		}
+	}
+	return structs.Message{}
 }
 
 func Add(message structs.Message) int {

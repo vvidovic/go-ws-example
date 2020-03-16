@@ -32,7 +32,7 @@ func main() {
 
 	log.Println("Attempting to start HTTP Server.")
 
-	http.HandleFunc("/", httpHandlers.HandleRequest)
+	http.HandleFunc("/messages/", httpHandlers.HandleRequest)
 
 	var err = http.ListenAndServe(":"+strconv.Itoa(PORT), nil)
 
