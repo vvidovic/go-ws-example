@@ -37,6 +37,6 @@ func main() {
 	var err = http.ListenAndServe(":"+strconv.Itoa(PORT), nil)
 
 	if err != nil {
-		log.Panicln("Server failed starting. Error: %s", err)
+		log.Panicln("Server failed starting. Error: ", err)
 	}
 }
