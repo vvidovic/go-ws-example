@@ -1,7 +1,7 @@
 package storage
 
 import (
-	"github.com/wpferg/services/structs"
+	"github.com/vvidovic/services/structs"
 )
 
 var store structs.MessageList
