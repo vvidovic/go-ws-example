@@ -8,7 +8,7 @@ func HandleRequest(w http.ResponseWriter, r *http.Request) {
 	log.Printf("Incoming Collection Request, %s %v", r.Method, r.URL)
 	switch r.Method {
 	case http.MethodGet:
-		if r.URL.Path == "/" {
+		if r.URL.Path == "/messages/" {
 			List(w, r)
 		} else {
 			Get(w, r)
