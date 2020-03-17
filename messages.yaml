@@ -1,0 +1,100 @@
+swagger: "2.0"
+info:
+  version: 0.0.1
+  title: go-ws-example
+  license:
+    name: MIT
+    url: http://opensource.org/licenses/MIT
+host: api-3scale-apicast-staging.192.168.99.101.nip.io
+basePath: /msgs
+schemes:
+  - https
+paths:
+  /messages:
+    get:
+      summary: Get all messages
+      parameters:
+      - name: user_key
+        in: query
+        type: string
+        required: true
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: "#/definitions/MessageList"
+    post:
+      summary: Add new message
+      parameters:
+      - name: user_key
+        in: query
+        type: string
+        required: true
+      - name: body
+        in: body
+        schema:
+          $ref: "#/definitions/MessageNew"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: "#/definitions/ID"
+  /messages/{id}:
+    get:
+      parameters:
+      - name: user_key
+        in: query
+        type: string
+        required: true
+      - name: id
+        in: path
+        description: "ID of message"
+        required: true
+        type: "integer"
+      summary: Get message by id
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: "#/definitions/Message"
+    delete:
+      summary: Delete message by id
+      parameters:
+      - name: user_key
+        in: query
+        type: string
+        required: true
+      - name: id
+        in: path
+        description: "ID of message"
+        required: true
+        type: "integer"
+      responses:
+        200:
+          description: OK
+definitions:
+  MessageNew:
+    type: object
+    properties:
+      Sender:
+        type: string
+      Message:
+        type: string
+  Message:
+    type: object
+    properties:
+      ID:
+        type: integer
+      Sender:
+        type: string
+      Message:
+        type: string
+  MessageList:
+    type: array
+    items:
+      $ref: "#/definitions/Message"
+  ID:
+    type: object
+    properties:
+      ID:
+        type: integer
