@@ -3,7 +3,7 @@ apiVersion: v1
 metadata:
   name: go-ws-example
   annotations:
-    description: 'An example web service written in Golang (https://github.com/vvidovic/services)'
+    description: 'An example web service written in Golang (https://github.com/vvidovic/go-ws-example)'
     tags: 'quickstart,golang'
     iconClass: icon-go-gopher
 labels:
@@ -62,6 +62,13 @@ objects:
         - type: GitHub
           github:
             secret: '${GITHUB_WEBHOOK_SECRET}'
+      resources:
+        limits:
+          cpu: 250m
+          memory: 300Mi
+        requests:
+          cpu: 50m
+          memory: 50Mi
       postCommit:
         script: go test -v ./...
   - kind: DeploymentConfig
@@ -100,7 +107,7 @@ objects:
 parameters:
   - name: SOURCE_REPOSITORY_URL
     description: The URL of the repository with your application source code
-    value: 'https://github.com/vvidovic/services.git'
+    value: 'https://github.com/vvidovic/go-ws-example.git'
   - name: SOURCE_REPOSITORY_REF
     description: >-
       Set this to a branch name, tag or other ref of your repository if you are
@@ -110,7 +117,7 @@ parameters:
       Set this to the relative path to your project if it is not in the root of
       your repository
   - name: APPLICATION_DOMAIN
-    description: The exposed hostname that will route to the Beego service
+    description: The exposed hostname that will route to the go-ws-example service
     value: go-ws-example.192.168.99.101.nip.io
   - name: GITHUB_WEBHOOK_SECRET
     description: >-
